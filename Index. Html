@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AÇAÍTO - A Energia Natural do Rio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #6B46C1 0%, #553C9A 50%, #2F855A 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 30px;
+            padding: 0;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+            animation: slideUp 0.6s ease-out;
+            overflow: hidden;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6B46C1 0%, #553C9A 100%);
+            padding: 40px 30px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            width: 140px;
+            height: 140px;
+            background: white;
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 15px;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        h1 {
+            color: white;
+            font-size: 32px;
+            margin-bottom: 8px;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            color: #E9D5FF;
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 16px;
+            border: none;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+        }
+
+        .button:hover::before {
+            left: 100%;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .button:active {
+            transform: translateY(-1px);
+        }
+
+        .pix-button {
+            background: linear-gradient(135deg, #38B2AC 0%, #2C7A7B 100%);
+        }
+
+        .instagram-button {
+            background: linear-gradient(135deg, #E1306C 0%, #C13584 60%, #833AB4 100%);
+        }
+
+        .whatsapp-button {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+
+        .icon {
+            font-size: 26px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .footer {
+            text-align: center;
+            color: #A0AEC0;
+            font-size: 14px;
+            margin-top: 20px;
+            padding-bottom: 10px;
+        }
+
+        .natural-badge {
+            background: linear-gradient(135deg, #48BB78 0%, #38A169 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(72, 187, 120, 0.3);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 25px;
+            }
+
+            .header {
+                padding: 30px 20px 25px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .logo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .button {
+                padding: 18px;
+                font-size: 17px;
+            }
+        }
+
+        .copied-notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: #48BB78;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(72, 187, 120, 0.4);
+            animation: slideDown 0.5s ease-out forwards;
+            z-index: 1000;
+        }
+
+        @keyframes slideDown {
+            to {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%236B46C1'/%3E%3Ctext x='50%25' y='45%25' font-family='Arial Black' font-size='60' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='middle'%3EAÇAÍ%3C/text%3E%3Ctext x='50%25' y='65%25' font-family='Arial Black' font-size='60' font-weight='bold' fill='%2348BB78' text-anchor='middle' dominant-baseline='middle'%3EÍTO%3C/text%3E%3Ccircle cx='100' cy='140' r='25' fill='none' stroke='%2348BB78' stroke-width='4'/%3E%3Ccircle cx='90' cy='145' r='8' fill='%2348BB78'/%3E%3Ccircle cx='110' cy='145' r='8' fill='%2348BB78'/%3E%3Cpath d='M 95 130 Q 100 125 105 130' fill='none' stroke='%2348BB78' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" alt="AÇAÍTO">
+            </div>
+            <h1>AÇAÍTO</h1>
+            <p class="subtitle">A Energia Natural do Rio</p>
+            <div class="natural-badge">🌿 100% Natural</div>
+        </div>
+
+        <div class="content">
+            <a href="#" class="button pix-button" id="pixButton">
+                <span class="icon">💰</span>
+                <span>Pagar com PIX</span>
+            </a>
+
+            <a href="https://instagram.com/acsgoesmkt" target="_blank" class="button instagram-button">
+                <span class="icon">📸</span>
+                <span>Seguir no Instagram</span>
+            </a>
+
+            <a href="https://wa.me/5521994110356?text=Olá!%20Vim%20pelo%20QR%20Code%20do%20AÇAÍTO" target="_blank" class="button whatsapp-button">
+                <span class="icon">💬</span>
+                <span>Chamar no WhatsApp</span>
+            </a>
+
+            <p class="footer">Escaneie o QR Code no rótulo 🔍</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('pixButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const chavePix = '55247025000186';
+            
+            navigator.clipboard.writeText(chavePix).then(() => {
+                showNotification('✅ Chave PIX copiada!');
+            }).catch(() => {
+                alert(`Chave PIX: ${chavePix}\n\nCopie a chave acima para realizar o pagamento.`);
+            });
+        });
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'copied-notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideDown 0.5s ease-out reverse';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
