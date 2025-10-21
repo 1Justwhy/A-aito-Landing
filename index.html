@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AÇAÍTO - A Energia Natural do Rio</title>
+    <title>Sistema Solar - Exemplo de Camadas</title>
     <style>
+        /* ================================================
+           CAMADA 1: CSS - APARÊNCIA (Planeta Terra 🌍)
+           Responsável por: cores, tamanhos, posições
+        ================================================ */
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,269 +17,379 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #6B46C1 0%, #553C9A 50%, #2F855A 100%);
+            background: #000814;
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-        }
-
-        .container {
-            background: white;
-            border-radius: 30px;
-            padding: 0;
-            max-width: 420px;
-            width: 100%;
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
-            animation: slideUp 0.6s ease-out;
+            font-family: 'Arial', sans-serif;
             overflow: hidden;
         }
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .header {
-            background: linear-gradient(135deg, #6B46C1 0%, #553C9A 100%);
-            padding: 40px 30px 30px;
-            text-align: center;
-            position: relative;
-        }
-
-        .logo {
-            width: 140px;
-            height: 140px;
-            background: white;
-            border-radius: 20px;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            padding: 15px;
-        }
-
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        h1 {
-            color: white;
-            font-size: 32px;
-            margin-bottom: 8px;
-            font-weight: 700;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .subtitle {
-            color: #E9D5FF;
-            font-size: 17px;
-            font-weight: 500;
-        }
-
-        .content {
-            padding: 40px 30px;
-        }
-
-        .button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            width: 100%;
+        .info-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             padding: 20px;
-            margin-bottom: 16px;
+            border-radius: 15px;
+            color: white;
+            max-width: 300px;
+        }
+
+        .info-panel h2 {
+            color: #ffd60a;
+            margin-bottom: 10px;
+        }
+
+        .camada {
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 3px solid;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+        }
+
+        .camada-1 { border-color: #4cc9f0; }
+        .camada-2 { border-color: #f72585; }
+        .camada-3 { border-color: #7209b7; }
+
+        .sistema-solar {
+            position: relative;
+            width: 600px;
+            height: 600px;
+        }
+
+        /* Sol no centro */
+        .sol {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #ffd60a, #ff9e00);
+            border-radius: 50%;
+            box-shadow: 0 0 60px #ffd60a;
+            animation: pulsar 2s ease-in-out infinite;
+        }
+
+        @keyframes pulsar {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        /* Órbitas */
+        .orbita {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .orbita-1 { width: 150px; height: 150px; }
+        .orbita-2 { width: 250px; height: 250px; }
+        .orbita-3 { width: 350px; height: 350px; }
+
+        /* Planetas */
+        .planeta {
+            position: absolute;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .planeta:hover {
+            transform: scale(1.3);
+            z-index: 10;
+        }
+
+        .mercurio {
+            width: 15px;
+            height: 15px;
+            background: #8d8d8d;
+            top: -7.5px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: orbitar-1 10s linear infinite;
+        }
+
+        .venus {
+            width: 20px;
+            height: 20px;
+            background: #ffa500;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: orbitar-2 15s linear infinite;
+        }
+
+        .terra {
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(135deg, #4cc9f0, #2a9d8f);
+            top: -12.5px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: orbitar-3 20s linear infinite;
+            box-shadow: 0 0 20px #4cc9f0;
+        }
+
+        @keyframes orbitar-1 {
+            from { transform: translateX(-50%) rotate(0deg) translateX(75px) rotate(0deg); }
+            to { transform: translateX(-50%) rotate(360deg) translateX(75px) rotate(-360deg); }
+        }
+
+        @keyframes orbitar-2 {
+            from { transform: translateX(-50%) rotate(0deg) translateX(125px) rotate(0deg); }
+            to { transform: translateX(-50%) rotate(360deg) translateX(125px) rotate(-360deg); }
+        }
+
+        @keyframes orbitar-3 {
+            from { transform: translateX(-50%) rotate(0deg) translateX(175px) rotate(0deg); }
+            to { transform: translateX(-50%) rotate(360deg) translateX(175px) rotate(-360deg); }
+        }
+
+        /* Estrelas de fundo */
+        .estrela {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: brilhar 3s ease-in-out infinite;
+        }
+
+        @keyframes brilhar {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .controles {
+            position: absolute;
+            bottom: 30px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #7209b7, #f72585);
             border: none;
-            border-radius: 16px;
-            font-size: 18px;
+            border-radius: 8px;
+            color: white;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: white;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s;
         }
 
-        .button::before {
-            content: '';
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(242, 37, 133, 0.5);
+        }
+
+        .status {
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.5s ease;
-        }
-
-        .button:hover::before {
-            left: 100%;
-        }
-
-        .button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
-        }
-
-        .button:active {
-            transform: translateY(-1px);
-        }
-
-        .pix-button {
-            background: linear-gradient(135deg, #38B2AC 0%, #2C7A7B 100%);
-        }
-
-        .instagram-button {
-            background: linear-gradient(135deg, #E1306C 0%, #C13584 60%, #833AB4 100%);
-        }
-
-        .whatsapp-button {
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-        }
-
-        .icon {
-            font-size: 26px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-        }
-
-        .footer {
-            text-align: center;
-            color: #A0AEC0;
+            bottom: 80px;
+            color: #4cc9f0;
             font-size: 14px;
-            margin-top: 20px;
-            padding-bottom: 10px;
-        }
-
-        .natural-badge {
-            background: linear-gradient(135deg, #48BB78 0%, #38A169 100%);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 10px;
-            box-shadow: 0 4px 10px rgba(72, 187, 120, 0.3);
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                border-radius: 25px;
-            }
-
-            .header {
-                padding: 30px 20px 25px;
-            }
-
-            .content {
-                padding: 30px 20px;
-            }
-
-            h1 {
-                font-size: 28px;
-            }
-
-            .logo {
-                width: 120px;
-                height: 120px;
-            }
-
-            .button {
-                padding: 18px;
-                font-size: 17px;
-            }
-        }
-
-        .copied-notification {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-100px);
-            background: #48BB78;
-            color: white;
-            padding: 16px 24px;
-            border-radius: 12px;
-            font-weight: 600;
-            box-shadow: 0 8px 20px rgba(72, 187, 120, 0.4);
-            animation: slideDown 0.5s ease-out forwards;
-            z-index: 1000;
-        }
-
-        @keyframes slideDown {
-            to {
-                transform: translateX(-50%) translateY(0);
-            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="logo">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%236B46C1'/%3E%3Ctext x='50%25' y='45%25' font-family='Arial Black' font-size='60' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='middle'%3EAÇAÍ%3C/text%3E%3Ctext x='50%25' y='65%25' font-family='Arial Black' font-size='60' font-weight='bold' fill='%2348BB78' text-anchor='middle' dominant-baseline='middle'%3EÍTO%3C/text%3E%3Ccircle cx='100' cy='140' r='25' fill='none' stroke='%2348BB78' stroke-width='4'/%3E%3Ccircle cx='90' cy='145' r='8' fill='%2348BB78'/%3E%3Ccircle cx='110' cy='145' r='8' fill='%2348BB78'/%3E%3Cpath d='M 95 130 Q 100 125 105 130' fill='none' stroke='%2348BB78' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" alt="AÇAÍTO">
-            </div>
-            <h1>AÇAÍTO</h1>
-            <p class="subtitle">A Energia Natural do Rio</p>
-            <div class="natural-badge">🌿 100% Natural</div>
+    <!-- ================================================
+         CAMADA 2: HTML - ESTRUTURA (Planeta Vênus 🪐)
+         Responsável por: elementos, conteúdo, organização
+    ================================================ -->
+    
+    <div class="info-panel">
+        <h2>🌌 Sistema em Camadas</h2>
+        
+        <div class="camada camada-1">
+            <strong>🌍 HTML</strong><br>
+            Estrutura do sistema
         </div>
-
-        <div class="content">
-            <a href="13850633780" class="button pix-button" id="pixButton">
-                <span class="icon">💰</span>
-                <span>Pagar com PIX</span>
-            </a>
-
-            <a href="https://instagram.com/acsgoesmkt" target="_blank" class="button instagram-button">
-                <span class="icon">📸</span>
-                <span>Seguir no Instagram</span>
-            </a>
-
-            <a href="https://wa.me/5521994110356?text=Olá!%20Vim%20pelo%20QR%20Code%20do%20AÇAÍTO" target="_blank" class="button whatsapp-button">
-                <span class="icon">💬</span>
-                <span>Chamar no WhatsApp</span>
-            </a>
-
-            <p class="footer">Escaneie o QR Code no rótulo e queria mais informações 🔍</p>
+        
+        <div class="camada camada-2">
+            <strong>🎨 CSS</strong><br>
+            Aparência e animações
         </div>
+        
+        <div class="camada camada-3">
+            <strong>⚡ JavaScript</strong><br>
+            Interatividade e lógica
+        </div>
+        
+        <p style="margin-top: 15px; font-size: 12px; color: #aaa;">
+            Clique nos planetas ou use os botões!
+        </p>
     </div>
 
+    <!-- Sistema Solar -->
+    <div class="sistema-solar">
+        <div class="sol" title="Sol"></div>
+        
+        <div class="orbita orbita-1"></div>
+        <div class="orbita orbita-2"></div>
+        <div class="orbita orbita-3"></div>
+        
+        <div class="planeta mercurio" data-nome="Mercúrio" data-info="O planeta mais próximo do Sol"></div>
+        <div class="planeta venus" data-nome="Vênus" data-info="O planeta mais quente do sistema solar"></div>
+        <div class="planeta terra" data-nome="Terra" data-info="Nosso lar! 🌍"></div>
+    </div>
+
+    <!-- Controles -->
+    <div class="status" id="status">Sistema rodando...</div>
+    <div class="controles">
+        <button class="btn" onclick="pausarOrbitas()">⏸️ Pausar</button>
+        <button class="btn" onclick="acelerarOrbitas()">⚡ Acelerar</button>
+        <button class="btn" onclick="buscarDadosAPI()">🛰️ Buscar Dados API</button>
+    </div>
+
+    <!-- ================================================
+         CAMADA 3: JAVASCRIPT - LÓGICA (Planeta Marte 🔴)
+         Responsável por: interações, dados, comunicação
+    ================================================ -->
     <script>
-        document.getElementById('pixButton').addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const chavePix = '55247025000186';
-            
-            navigator.clipboard.writeText(chavePix).then(() => {
-                showNotification('✅ Chave PIX copiada!');
-            }).catch(() => {
-                alert(`Chave PIX: ${chavePix}\n\nCopie a chave acima para realizar o pagamento.`);
+        // ==== VARIÁVEIS E ESTADO ====
+        let velocidade = 1;
+        let pausado = false;
+
+        // ==== FUNÇÃO 1: Criar estrelas aleatórias ====
+        function criarEstrelas() {
+            for (let i = 0; i < 200; i++) {
+                const estrela = document.createElement('div');
+                estrela.className = 'estrela';
+                estrela.style.left = Math.random() * 100 + '%';
+                estrela.style.top = Math.random() * 100 + '%';
+                estrela.style.animationDelay = Math.random() * 3 + 's';
+                document.body.appendChild(estrela);
+            }
+        }
+
+        // ==== FUNÇÃO 2: Interação com planetas ====
+        document.querySelectorAll('.planeta').forEach(planeta => {
+            planeta.addEventListener('click', function() {
+                const nome = this.dataset.nome;
+                const info = this.dataset.info;
+                
+                // Atualizar status
+                document.getElementById('status').textContent = 
+                    `${nome}: ${info}`;
+                
+                // Efeito visual
+                this.style.transform = 'scale(1.5)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 300);
             });
         });
 
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.className = 'copied-notification';
-            notification.textContent = message;
-            document.body.appendChild(notification);
-
-            setTimeout(() => {
-                notification.style.animation = 'slideDown 0.5s ease-out reverse';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 500);
-            }, 2500);
+        // ==== FUNÇÃO 3: Pausar órbitas ====
+        function pausarOrbitas() {
+            const planetas = document.querySelectorAll('.planeta');
+            
+            if (pausado) {
+                planetas.forEach(p => {
+                    p.style.animationPlayState = 'running';
+                });
+                document.getElementById('status').textContent = 'Sistema rodando...';
+                pausado = false;
+            } else {
+                planetas.forEach(p => {
+                    p.style.animationPlayState = 'paused';
+                });
+                document.getElementById('status').textContent = '⏸️ Sistema pausado';
+                pausado = true;
+            }
         }
+
+        // ==== FUNÇÃO 4: Acelerar órbitas ====
+        function acelerarOrbitas() {
+            velocidade = velocidade === 1 ? 3 : 1;
+            const planetas = document.querySelectorAll('.planeta');
+            
+            planetas.forEach(p => {
+                const duracao = velocidade === 1 ? 
+                    p.classList.contains('mercurio') ? '10s' :
+                    p.classList.contains('venus') ? '15s' : '20s'
+                    :
+                    p.classList.contains('mercurio') ? '3s' :
+                    p.classList.contains('venus') ? '5s' : '7s';
+                
+                p.style.animationDuration = duracao;
+            });
+            
+            document.getElementById('status').textContent = 
+                velocidade === 3 ? '⚡ Velocidade 3x' : 'Velocidade normal';
+        }
+
+        // ==== FUNÇÃO 5: Simular chamada de API ====
+        // (Seria aqui que o JavaScript conversaria com o Backend)
+        async function buscarDadosAPI() {
+            document.getElementById('status').textContent = '🛰️ Buscando dados...';
+            
+            // Simular delay de rede
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            // Dados simulados (viriam do backend em produção)
+            const dados = {
+                planetas: 3,
+                temperatura: '15°C na Terra',
+                status: 'Todos os sistemas operacionais'
+            };
+            
+            document.getElementById('status').textContent = 
+                `✅ Dados recebidos: ${dados.planetas} planetas ativos`;
+            
+            console.log('Dados da API:', dados);
+        }
+
+        // ==== INICIALIZAÇÃO ====
+        window.addEventListener('load', () => {
+            criarEstrelas();
+            document.getElementById('status').textContent = 
+                '🌌 Sistema Solar carregado! Clique nos planetas.';
+        });
+
+        // ==== EXEMPLO DE COMUNICAÇÃO COM BACKEND ====
+        // (Descomente quando tiver backend rodando)
+        /*
+        async function buscarDadosReais() {
+            try {
+                const response = await fetch('https://sua-api.vercel.app/api/planetas');
+                const dados = await response.json();
+                console.log('Dados do backend:', dados);
+            } catch (error) {
+                console.error('Erro ao buscar dados:', error);
+            }
+        }
+        */
     </script>
+
+    <!-- ================================================
+         RESUMO DAS CAMADAS:
+         
+         🌍 HTML (Estrutura)
+         - Define O QUE existe (divs, botões, textos)
+         - É o esqueleto do sistema
+         
+         🎨 CSS (Aparência)
+         - Define COMO as coisas aparecem (cores, posições, animações)
+         - É a pele e roupa do sistema
+         
+         ⚡ JavaScript (Lógica)
+         - Define COMO as coisas funcionam (cliques, dados, comunicação)
+         - É o cérebro do sistema
+         
+         🔌 Backend (Dados - não está neste arquivo)
+         - Guardaria dados em banco (Notion, PostgreSQL)
+         - Processaria lógica complexa
+         - Seria acessado via API pelo JavaScript
+    ================================================ -->
 </body>
 </html>
